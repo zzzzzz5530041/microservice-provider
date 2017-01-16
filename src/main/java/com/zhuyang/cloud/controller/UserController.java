@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -34,7 +35,23 @@ public class UserController {
 	public ServiceInstance serviceUrl() {
 		return discoveryClient.getLocalServiceInstance();
 	}
-
+	/**
+	 * 
+	 * 
+	 *  request data:
+	 *  {
+			"name":"xijinping",
+			"username":"HJT",
+			"balance":250,
+			"age":60
+		 }
+	 * @param user
+	 * @return
+	 */
+	@RequestMapping(value="/service/add",method=RequestMethod.POST)
+	public User addUser(@RequestBody User user){
+		return this.userService.addUser(user);
+	}
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home() {
 		return "200";

@@ -9,5 +9,5 @@ public List<User> getAllUsers();
 
 public User findById(long id); 
 
-
+public User addUser(User user); 
 } 

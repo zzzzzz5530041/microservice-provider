@@ -44,4 +44,10 @@ public class UserServiceImpl implements UserService {
 		this.userDao = userDao;
 	}
 
+	@Override
+	public User addUser(User user) {
+		User newUser = this.userRepository.save(user);
+		return newUser;
+	}
+
 }
