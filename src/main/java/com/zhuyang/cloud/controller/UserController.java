@@ -26,7 +26,7 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/service/all", method = RequestMethod.GET)
-	public List<User> findById() {
+	public List<User> findAll() {
 		return this.userService.getAllUsers();
 	}
 
